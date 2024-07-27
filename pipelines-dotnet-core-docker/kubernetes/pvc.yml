@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: azure-managed-disk-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce # Other options: ReadWriteMany, ReadOnlyMany
+  storageClassName: azure-disk-storage # Ensure this matches the storage class available in your Azure setup
+  resources:
+    requests:
+      storage: "5Gi" # Adjust as needed for your use case
+  volumeMode: Block
+  selector:
+    matchLabels:
+      purpose: azure-managed-disk
+

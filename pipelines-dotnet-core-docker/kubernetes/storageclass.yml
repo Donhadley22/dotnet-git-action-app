@@ -1,0 +1,11 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: azure-disk-storage
+provisioner: kubernetes.io/azure-disk
+parameters:
+  skuName: Standard_LRS  # Options: Standard_LRS, Premium_LRS
+  storageaccounttype: Standard_LRS  # Options: Standard_LRS, Premium_LRS
+  kind: Managed
+  location: eastus
+  
